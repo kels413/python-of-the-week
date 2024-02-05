@@ -11,9 +11,9 @@ try:
     while True:
         path = input("Please enter directory Path (absolute or relative) to view the output: ")
         # check if the path exists and also a tilde so we expand
-        if os.path.exists(path) or path == "~":
-            if os.path.isdir(path):
-                expand_path = os.path.expanduser(path)
+        if os.path.exists(path) or path.startswith("~"):
+            expand_path = os.path.expanduser(path)
+            if os.path.isdir(expand_path):
                 content = os.listdir(expand_path)
                 # Display Non-hidden file
                 for cnt in content:
