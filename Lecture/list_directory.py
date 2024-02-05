@@ -6,11 +6,16 @@ try:
         path = input("Please enter directory Path (absolute or relative) to view the output: ")
         # check if the path exists and also a tilde so we expand
         if os.path.exists(path) or path == "~":
-            expand_path = os.path.expanduser(path)
-            content = os.listdir(expand_path)
-            # Display Non-hidden file
-            for cnt in content:
-                if not cnt.startswith("."):
-                    print(cnt)
+            if os.path.isdir(path):
+                expand_path = os.path.expanduser(path)
+                content = os.listdir(expand_path)
+                # Display Non-hidden file
+                for cnt in content:
+                    if not cnt.startswith("."):
+                        print(cnt)
+            else:
+                print("File not a Directory")
+        else:
+            print("No such Directory")
 except (EOFError, KeyboardInterrupt):
     print("\nGood bye!")
