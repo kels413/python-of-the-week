@@ -1,5 +1,11 @@
 import os
 
+""" list Directory content
+A simple program that lists any directory content
+it makes use of Absolute and relative path.
+and handles error efficiently.
+"""
+
 print("press ctr/command D to exit prompt")
 try:
     while True:
