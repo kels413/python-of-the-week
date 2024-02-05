@@ -43,10 +43,15 @@ example
 def check_directory():
     print("path before changing the directory")
     cwd = os.getcwd()
-    print(cwd)
+    
 
 check_directory()
 os.chdir(../)
 print(os.getcwd)
+
+Output:
+/Users/mistarkelly/ubuntu_shared/My-Projects/python-of-the-week/Lecture
+path before changing the directory
+/Users/mistarkelly/ubuntu_shared/My-Projects/python-of-the-week
 
  
