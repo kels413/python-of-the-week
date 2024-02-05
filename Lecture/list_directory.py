@@ -1,11 +1,14 @@
 import os
 
-path = input("Please enter directory Path (absolute or relative) to view the output: ")
-
+print("press ctr/command D to exit prompt")
 try:
-    expand_path = os.path.expanduser(path)
-    content = os.listdir(expand_path)
-except FileNotFoundError:
-    print("No such File or Directory")
-    
-
+    while True:
+        path = input("Please enter directory Path (absolute or relative) to view the output: ")
+        if os.path.exists(path):
+            expand_path = os.path.expanduser(path)
+            content = os.listdir(expand_path)
+            for cnt in content:
+                if not cnt.startswith("."):
+                    print(cnt)
+except (EOFError, KeyboardInterrupt):
+    print("\nGood bye!")
