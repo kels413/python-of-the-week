@@ -1,0 +1,17 @@
+OS MODULE.
+
+OS MODULE In python provides function we use to communicates with the operating system
+
+CWD = current working directory
+let's talk bout the current working directory of python.
+
+python consider current working diretory as the place it is operating on. whenever we do python3 <name of our file>, python assumes that the file is in the same directory, else the file is not in the same directory we have to pass the full path of the file to the python interpreter.
+
+example:
+
+cwd = os.getcwd()
+print(cwd)
+
+output:
+/Users/mistarkelly/ubuntu_shared/My-Projects/python-of-the-week/Lecture
+ 
