@@ -31,11 +31,21 @@ class Organize:
             print("Error: provided path is not a directory")
 
     def create_directories(self):
+        """ create Directories
+            a method responsible for creating directories
+        """
         try:
             for dir in self.directories:
                 os.mkdir(dir)
-        except FileExistsError as e:
-            print(e)
+        except FileExistsError:
+            print("File aready created", self.directories)
+
+    def move_files(self):
+        """Move files
+            A Method responsible for moving files into directories
+        """
+        pass
+
             
 
 try:      
