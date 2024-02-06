@@ -54,4 +54,13 @@ Output:
 path before changing the directory
 /Users/mistarkelly/ubuntu_shared/My-Projects/python-of-the-week
 
+#os.mkdir
+
+it helps us to create a directory in our system.
+
+
+
+Exception:
+it raises a FileExitsError if the directory already exits
+
  
