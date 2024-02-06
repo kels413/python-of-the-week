@@ -1,9 +1,12 @@
+import magic
 
-import os 
-  
-shutdown = input("Do you wish to shutdown your computer ? (yes / no): ") 
-  
-if shutdown == 'no': 
-    exit() 
-else: 
-    os.system("sudo shutdown /s /t 1") 
+def get_file_type(file_path):
+    mime = magic.Magic()
+    file_type = mime.from_file(file_path)
+    return file_type
+
+# Example usage:
+file_path = 'movie'
+file_type = get_file_type(file_path)
+
+print(file_type)
