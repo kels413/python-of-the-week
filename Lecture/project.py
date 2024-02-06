@@ -3,6 +3,8 @@ A Python script for efficient file management on my system. The script should be
 """
 
 import os
+import shutil
+import magic
 
 
 class Organize:
@@ -10,7 +12,7 @@ class Organize:
     """
         A class that Manages the files in the specified Directory.
     """
-    directories = ["Documents", "Downloads", "Pictures", "Videos", "Work", "Others"]
+    __directories = ["Documents", "Downloads", "Pictures", "Videos", "Work", "Others"]
 
     def recieve_userInput(self):
         user_input = input("Please Enter The Directory you wish to arrange: ")
@@ -35,10 +37,10 @@ class Organize:
             a method responsible for creating directories
         """
         try:
-            for dir in self.directories:
+            for dir in self.__directories:
                 os.mkdir(dir)
         except FileExistsError:
-            print("File aready created", self.directories)
+            print("File aready created", self.__directories)
 
     def move_files(self):
         """Move files
