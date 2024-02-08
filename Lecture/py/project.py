@@ -42,16 +42,12 @@ class Organize:
               #remove dot(.) from the ext using slicing.
               excluded_dot = ext[1:]
               if not os.path.isdir(excluded_dot):
-                    #os.mkdir(excluded_dot)
-                print(file)
-                
+                os.mkdir(excluded_dot)
 
-                
                 # os.mkdir(excluded_dot)
                 print("this is the excluded dot", excluded_dot)
                 print("Name of the file", name)
                 print("extension", ext)
-
 
         except FileExistsError:
             print("File aready created", self.__directories)
