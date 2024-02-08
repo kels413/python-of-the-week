@@ -1,18 +1,16 @@
 """
 A Python script for efficient file management on my system. The script should be able to perform tasks such as organizing files, renaming, moving, and possibly categorizing them.
 """
-
 import os
 import shutil
 import magic
-
 
 class Organize:
 
     """
         A class that Manages the files in the specified Directory.
     """
-    __directories = ["Documents", "Downloads", "Pictures", "Videos", "Work", "Others"]
+    # __directories = ["Documents", "Downloads", "Pictures", "Videos", "Work", "Others"]
 
     def recieve_userInput(self):
         user_input = input("Please Enter The Directory you wish to arrange: ")
@@ -37,8 +35,7 @@ class Organize:
             a method responsible for creating directories
         """
         try:
-            for dir in self.__directories:
-                os.mkdir(dir)
+            pass
         except FileExistsError:
             print("File aready created", self.__directories)
 
@@ -49,7 +46,6 @@ class Organize:
         pass
 
             
-
 try:      
     organize1 = Organize()
     organize1.recieve_userInput()
