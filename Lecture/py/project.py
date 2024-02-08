@@ -28,7 +28,14 @@ class Organize:
         else:
             print("provided path is not a directory")
        
-    
+    def create_directories(self):
+        """ create Directories
+            a method responsible for creating directories
+        """
+        content = os.listdir(self.expanded_path)
+        print("changed directory",os.getcwd())
+
+       
             
 try:      
     organize1 = Organize()
