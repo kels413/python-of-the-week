@@ -53,23 +53,26 @@ class Organize:
               print(name)
               print(os.getcwd())
     #           #remove dot(.) from the ext using slicing.
-              excluded_dot = ext[1:]
+              self.excluded_dot = ext[1:]
               # if the tuple created from splitext is not empty:
                 # eg name, ext = (file, txt) and not name, ext = (file, "") 
-              if excluded_dot != "" and not os.path.isdir(excluded_dot) and not os.path.exists(excluded_dot):
-                os.mkdir(excluded_dot)
-                print("this is the excluded dot", excluded_dot)
+              if self.excluded_dot != "" and not os.path.isdir(self.excluded_dot) and not os.path.exists(self.excluded_dot):
+                os.mkdir(self.excluded_dot)
+                print("this is the excluded dot", self.excluded_dot)
                 print("Name of the file", name)
                 print("extension", ext)
+              shutil.move(file,self.excluded_dot)
         except FileExistsError:
             print("File aready created")
 
 
-    # def move_files(self):
-    #     """Move files
-    #         A Method responsible for moving files into directories
-    #     """
-    #     pass
+    def move_files(self):
+        """Move files
+            A Method responsible for moving files into directories
+        """
+
+        # shutil.move()
+        pass
 
 try:      
     organize1 = Organize()
