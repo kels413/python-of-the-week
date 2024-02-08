@@ -4,27 +4,44 @@
 import os
 import shutil
 
-print(os.getcwd())
-usr_input = input("Input a file: ")
-others = ""
+# print(os.getcwd())
+# usr_input = input("Input a file: ")
+# others = ""
 
-cleaned_input = usr_input.strip()
+# cleaned_input = usr_input.strip()
 
-print(os.getcwd())
-try:
-   if cleaned_input.startswith("~"):
-      expanded_path = os.path.expanduser(cleaned_input)
-      os.chdir(expanded_path)
-      files = os.listdir(expanded_path)
-      print(files)
-      print(os.getcwd())
-   else:
-      files = os.listdir(cleaned_input)
-      print(files)
-      os.chdir(cleaned_input)
-      print(os.getcwd())
-except FileNotFoundError:
-   print("No such directory")
+# print(os.getcwd())
+# try:
+#    if cleaned_input.startswith("~"):
+#       expanded_path = os.path.expanduser(cleaned_input)
+#       os.chdir(expanded_path)
+#       files = os.listdir(expanded_path)
+#       print(files)
+#       print(os.getcwd())
+#    else:
+#       files = os.listdir(cleaned_input)
+#       print(files)
+#       os.chdir(cleaned_input)
+#       print(os.getcwd())
+# except FileNotFoundError:
+#    print("No such directory")
+
+
+file = "README.md"
+name, ext = os.path.splitext(file)
+main = os.path.splitext(file)
+# name is "example", ext is ".txt"
+print(name)
+print(ext)
+print(main)
+
+file_without_extension = "kelly"
+name, ext = os.path.splitext(file_without_extension)
+print(name)
+print(ext)
+
+
+# name is "example", ext is ""
 
 
 
