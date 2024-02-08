@@ -29,16 +29,21 @@ class Organize:
             print("provided path is not a directory")
        
     def create_directories(self):
-        """ create Directories
+        """ create Direct ories
             a method responsible for creating directories
         """
         self.content = os.listdir(self.expanded_path)
+       
         print("changed directory",os.getcwd())
 
+        print("this is where i am")
         try:
           for file in self.content:
              #expand the file_name
+              print(self.content)
+              print("Kelly")
               name, ext = os.path.splitext(file)
+              print(name)
               #remove dot(.) from the ext using slicing.
               excluded_dot = ext[1:]
               if not os.path.isdir(excluded_dot):
@@ -48,15 +53,14 @@ class Organize:
                 print("Name of the file", name)
                 print("extension", ext)
         except FileExistsError:
-            print("File aready created", self.__directories)
+            print("File aready created")
 
     def move_files(self):
         """Move files
             A Method responsible for moving files into directories
         """
-        print(self.content)
+        pass
 
-            
 try:      
     organize1 = Organize()
     organize1.recieve_userInput()
