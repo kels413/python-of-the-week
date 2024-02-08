@@ -22,7 +22,6 @@ class Organize:
 
         # if valid directory and not a file:
         #     change cwd to user_input.
-        
     def change_directory(self):
         print(os.getcwd())
         if os.path.isdir(self.expanded_path):
@@ -70,8 +69,6 @@ class Organize:
         """Move files
             A Method responsible for moving files into directories
         """
-
-        # shutil.move()
         pass
 
 try:      
