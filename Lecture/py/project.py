@@ -1,5 +1,5 @@
 """
-A Python script for efficient file management on my system. The script should be able to perform tasks such as organizing files, renaming, moving, and possibly categorizing them.
+A Python script for efficient file management on my system. The script should be able to perform tasks such as organizing files, renaming, moving, and possibly categorizing them. using OOP.
 """
 import os
 import shutil
