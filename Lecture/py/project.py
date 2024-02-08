@@ -32,15 +32,15 @@ class Organize:
         """ create Direct ories
             a method responsible for creating directories
         """
-        self.content = os.listdir(self.expanded_path)
+        content = os.listdir(self.expanded_path)
        
         print("changed directory",os.getcwd())
 
         print("this is where i am")
         try:
-          for file in self.content:
+          for file in content:
              #expand the file_name
-              print(self.content)
+              print(content)
               print("Kelly")
               name, ext = os.path.splitext(file)
               print(name)
