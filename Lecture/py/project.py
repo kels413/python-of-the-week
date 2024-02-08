@@ -35,7 +35,33 @@ class Organize:
         content = os.listdir(self.expanded_path)
         print("changed directory",os.getcwd())
 
-       
+        try:
+          for file in content:
+             #expand the file_name
+              name, ext = os.path.splitext(file)
+              #remove dot(.) from the ext using slicing.
+              excluded_dot = ext[1:]
+              if not os.path.isdir(excluded_dot):
+                    #os.mkdir(excluded_dot)
+                print(file)
+                
+
+                
+                # os.mkdir(excluded_dot)
+                print("this is the excluded dot", excluded_dot)
+                print("Name of the file", name)
+                print("extension", ext)
+
+
+        except FileExistsError:
+            print("File aready created", self.__directories)
+
+    def move_files(self):
+        """Move files
+            A Method responsible for moving files into directories
+        """
+        pass
+
             
 try:      
     organize1 = Organize()
