@@ -32,11 +32,11 @@ class Organize:
         """ create Directories
             a method responsible for creating directories
         """
-        content = os.listdir(self.expanded_path)
+        self.content = os.listdir(self.expanded_path)
         print("changed directory",os.getcwd())
 
         try:
-          for file in content:
+          for file in self.content:
              #expand the file_name
               name, ext = os.path.splitext(file)
               #remove dot(.) from the ext using slicing.
@@ -47,7 +47,6 @@ class Organize:
                 print("this is the excluded dot", excluded_dot)
                 print("Name of the file", name)
                 print("extension", ext)
-
         except FileExistsError:
             print("File aready created", self.__directories)
 
@@ -55,7 +54,7 @@ class Organize:
         """Move files
             A Method responsible for moving files into directories
         """
-        pass
+        print(self.content)
 
             
 try:      
@@ -63,5 +62,6 @@ try:
     organize1.recieve_userInput()
     organize1.change_directory()
     organize1.create_directories()
+    organize1.move_files()
 except FileNotFoundError as fe:
     print(f"Error:", fe)
