@@ -54,7 +54,10 @@ class Organize:
     #           #remove dot(.) from the ext using slicing.
               excluded_dot = ext[1:]
               # if the tuple created from splitext is not empty:
-                # eg name, ext = (file, txt) and not name, ext = (file, "") 
+                # eg name, ext = (file, txt) and not name, ext = (file, "")
+              if excluded_dot and os.path.isdir(excluded_dot):
+                  shutil.move(file, excluded_dot)
+                
               if excluded_dot and not os.path.isdir(excluded_dot) and not os.path.exists(excluded_dot):
                 os.mkdir(excluded_dot)
                 print("this is the excluded dot", excluded_dot)
