@@ -27,18 +27,22 @@ import shutil
 #    print("No such directory")
 
 
-file = "README.md"
-name, ext = os.path.splitext(file)
-main = os.path.splitext(file)
-# name is "example", ext is ".txt"
-print(name)
-print(ext)
-print(main)
+# file = "README.md"
+# name, ext = os.path.splitext(file)
+# main = os.path.splitext(file)
+# # name is "example", ext is ".txt"
+# print(name)
+# print(ext)
+# print(main)
 
-file_without_extension = "kelly"
-name, ext = os.path.splitext(file_without_extension)
-print(name)
-print(ext)
+# file_without_extension = "kelly"
+# name, ext = os.path.splitext(file_without_extension)
+# print(name)
+# print(ext)
+
+
+fileName = "others"
+os.mkdir(fileName)
 
 
 # name is "example", ext is ""
