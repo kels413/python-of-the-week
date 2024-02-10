@@ -1,5 +1,5 @@
 """
-A Python script for efficient file management on my system. The script should be able to perform tasks such as organizing files, renaming, moving, and possibly categorizing them. using OOP.
+A Python script for efficient file management on my system. The script should be able to perform tasks such as organizing files, moving, and possibly categorizing them. using OOP.
 """
 import os
 import shutil
@@ -26,58 +26,61 @@ class Organize:
             # check wether path exists buh not a directory
             if os.path.exists(expanded_path) and not os.path.isdir(expanded_path):
                 raise FileNotFoundError("Sorry path provided is a file not a directory")
-
-            if user_input.startswith("~") or user_input.startswith("/"):
-                os.chdir(expanded_path)
-                return expanded_path
-
+            
             os.chdir(expanded_path)
             return os.getcwd()
         except (EOFError, KeyboardInterrupt):
             print("\nGood bye!")
             exit(0)
+
     
+    def create_dir(self, filename):
+        if not os.path.isdir(filename):
+            os.mkdir(filename)
+
+
+    
+    def move_files(self, filename, path):
+        try:
+            shutil.move(filename, path)
+        except (FileExistsError, shutil.Error):
+            print("File already exists")
+
 
     def manage_dir(self, path):
         """ create Direct ories
             a method responsible for creating directories
         """
-        filename = "others"
+        print(os.getcwd())
+        dirname = "others"
         content = os.listdir(path)
         print(content)
-       
-        try:
-          for file in content:
-             #expand the file_name
-              name, ext = os.path.splitext(file)
-    #           #remove dot(.) from the ext using slicing.
-              excluded_dot = ext[1:]
-            #   print(name)
-              print(file)
-              if ext == ".DS_Store":
-                  pass
-    #           # if the tuple created from splitext is not empty:
-    #             # eg name, ext = (file, txt) and not name, ext = (file, "")
-              if os.path.isfile(file) and excluded_dot == "":
-                  pass
+        for file in content:
+            name, ext = os.path.splitext(file)
+            file_ext = ext[1:]        
 
-                # check if the others dir already exists and just move files into it
-              if os.path.exists(filename) and os.path.isdir(filename):
-                    shutil.move(file, filename)
-              else:
-                os.mkdir(filename)
-                shutil.move(file, filename)
-                    # check if excluded path exists and has the file has an same extension
-              if os.path.isdir(excluded_dot) and excluded_dot in file:
-                    shutil.move(file, excluded_dot)
+            # file is directory and move files into it
+            if name == ".DS_Store":
+                continue
+            if os.path.isdir(file_ext):
+                self.move_files(file, file_ext)
+            else:
+                pass
+            if file_ext: # file has an extension
+                self.create_dir(file)
+                self.move_files(file, file_ext)
+        
+            # others directory already exists
+            if os.path.isdir(dirname):
+                # move folders that has no extention and are files
+                if not file_ext and os.path.isfile(file):
+                    self.move_files(file, dirname)
+            else:
+                os.mkdir(dirname)
+                if not file_ext and os.path.isfile(file):
+                    self.move_files(file, dirname)
 
-              if excluded_dot in file:
-                    os.mkdir(excluded_dot)
-                    shutil.move(file, excluded_dot)
-        except (FileExistsError, shutil.Error):
-            print(f"File Already exists ({file})")
-
-try:
+try:      
     organizer = Organize()
     path = organizer.recieve_userInput()
     organizer.manage_dir(path)
