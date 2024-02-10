@@ -76,24 +76,13 @@ class Organize:
 #         pass
 
 
-organize1 = Organize()
-# try:
-path = organize1.recieve_userInput()
-print(os.getcwd())
-if os.path.isdir(path):
-    print("directory discovered")
-else:
-    print("not a directory")
-
-    
+try:
+    organize1 = Organize()
+    path = organize1.recieve_userInput()
+except FileNotFoundError as fe:
+    print("Error!",fe)
 # content = os.listdir(path)
 # print(content)
 # print(path)
 # organize1.manage_dir(path)
-# except FileNotFoundError as fe:
-#     print("Error!",fe)
 
-
-
-#and os.path.isdir(excluded_dot):
-                  #shutil.move(file, excluded_dot)
