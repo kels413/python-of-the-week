@@ -11,42 +11,45 @@ class Organize:
     """
     # __directories = ["Documents", "Downloads", "Pictures", "Videos", "Work", "Others"]
 
-    def recieve_userInput(self) -> None:
+    def recieve_userInput(self, expanded_path) -> None:
         user_input = input("Please Enter The Directory you wish to arrange: ")
-        self.expanded_path = os.path.expanduser(user_input)
+        expanded_path = os.path.expanduser(user_input)
 
         # check if file exists
-        if not os.path.exists(self.expanded_path):
+        if not os.path.exists(expanded_path):
             raise FileNotFoundError("directory does not exist")
         # check wether path exists buh not a directory
-        if os.path.exists(self.expanded_path) and not os.path.isdir(self.expanded_path):
+        if os.path.exists(expanded_path) and not os.path.isdir(expanded_path):
             raise FileNotFoundError("Sorry path provided is a file not a directory")
         
-        print(self.expanded_path)
+        print(expanded_path)
+
+        return expanded_path
+
+
+        # if valid directory and not a file:
+        #     change cwd to user_input.
+    def change_directory(self, expanded_path):
+        print(os.getcwd())
+        if os.path.isdir(expanded_path):
+            # change current working to the path provided by the user
+            os.chdir(expanded_path)
+            print(os.getcwd())
+            print("this is the path",expanded_path)
+
+        else:
+            print("provided path is not a directory")
+
+    def iterate_directories(self, directories):
+        pass
+
 
 organize1 = Organize()
 try:
-    organize1.recieve_userInput()
+   user_input = organize1.recieve_userInput()
 except FileNotFoundError as fe:
     print("Error!",fe)
-
-
-
-#         # if valid directory and not a file:
-#         #     change cwd to user_input.
-#     def change_directory(self):
-#         print(os.getcwd())
-#         if os.path.isdir(self.expanded_path):
-#             # change current working to the path provided by the user
-#             os.chdir(self.expanded_path)
-#             print(os.getcwd())
-#             print("this is the path",self.expanded_path)
-
-#         else:
-#             print("provided path is not a directory")
-
-#     def iterate_directories(self, directories):
-#         pass
+organize1.change_directory(user_input)
 
        
 #     def create_directories(self):
