@@ -41,8 +41,8 @@ import shutil
 # print(ext)
 
 
-fileName = "others"
-os.mkdir(fileName)
+# fileName = "others"
+# os.mkdir(fileName)
 
 
 # name is "example", ext is ""
@@ -102,3 +102,8 @@ os.mkdir(fileName)
 # print(splited_path)
 # # print(files)
 
+
+
+name = "this string"
+
+name_slice = name[]
