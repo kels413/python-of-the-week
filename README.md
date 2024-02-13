@@ -15,6 +15,7 @@ This week's focus was on building a simple File Organizer module in Python. The 
 
 Refer to the detailed log file for a comprehensive view of the week's progress and code snippets.
 [link to log file](log)
+[link to project file](project.py)
 
 **End-Date:February 7, 2024**
 *Stay tuned for Week 2 updates!*
