@@ -1,19 +1,59 @@
-# Learning Challenge Log
-
-## Week 1: [os module / os.path]
+## Week 1: File Organizer Module
 
 **Learning Objectives:**
-- Understand the basics of [os module / os.path module].
-- Explore key features and functionalities.
-- Identify potential projects to build using [os module / os.path module].
+- Understand the basics of file and directory manipulation in Python.
+- Explore the `os` and `shutil` modules for managing files and directories.
 
 **Progress:**
-- Completed tutorials and documentation.
-- Implemented simple examples to solidify understanding.
+- Completed tutorials and documentation on the `os` and `shutil` modules.
+- Implemented a simple File Organizer module using Python.
+
+**Project Overview:**
+- Created a Python script that organizes files within a specified directory.
+- The script prompts the user for a directory to arrange.
+- Checked for the existence of the provided directory and handled various edge cases.
+- Utilized `os.path.expanduser()` to handle user input and expand the path.
+- Implemented functions to create directories and move files based on their extensions.
 
 **Challenges:**
-- [Any challenges or difficulties faced during the week.]
+- Encountered challenges in handling specific file types and directory structures.
+- knowing where my python cwd is at a given instance, utilized print debuggin to fix that it was fun tho 😹, (was looking for my intepreter every now and then 😹)
+- Dealt with exceptions such as `FileExistsError` and `shutil.Error` during file movement.
 
-**Next Steps:**
-- Brainstorm project ideas.
-- Plan the structure of the project.
+
+**Code Snippet:**
+import os
+import shutil
+
+import os
+import shutil
+
+class Organize:
+    def receive_user_input(self) -> str:
+        try:
+            user_input = input("Please enter the directory you wish to arrange: ")
+            cleaned_input = user_input.strip()
+
+            expanded_path = os.path.expanduser(cleaned_input)
+
+            # Check if the directory exists
+            if not os.path.exists(expanded_path):
+                raise FileNotFoundError("Directory does not exist")
+            
+            # Check whether the path exists but is not a directory
+            if os.path.exists(expanded_path) and not os.path.isdir(expanded_path):
+                raise FileNotFoundError("Provided path is a file, not a directory")
+
+            os.chdir(expanded_path)
+            return os.getcwd()
+        
+        except (EOFError, KeyboardInterrupt):
+            print("\nGoodbye!")
+            exit(0)
+
+try:      
+    organizer = Organize()
+    path = organizer.receive_user_input()
+    organizer.manage_directory(path)
+except FileNotFoundError as fe:
+    print("Error:", fe)
