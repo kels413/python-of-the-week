@@ -10,5 +10,7 @@ with open ('/Users/mistarkelly/ubuntu_shared/My-Projects/ALX-ONLY/AirBnB_clone/w
     content = file_html.read()
     soup = BeautifulSoup(content, 'lxml')
     
-    states = soup.find('div')
+    states_div = soup.find('div', class_='locations')
+    states = soup.find('h3')
+    print(states_div)
     print(states)
