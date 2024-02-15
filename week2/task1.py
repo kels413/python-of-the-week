@@ -11,5 +11,5 @@ with open ('/Users/mistarkelly/ubuntu_shared/My-Projects/ALX-ONLY/AirBnB_clone/w
     states_div = soup.find('div', class_='locations')
     states = states_div.find('h3').text.strip()
     states_names = states_div.find('h4').text.strip()
-if __name__ == "__main__":
-    print(f"all states in location div are {states}: {states_names}")
+    if __name__ == "__main__":
+        print(f"all states in location div are {states}: {states_names}")
