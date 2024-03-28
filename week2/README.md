@@ -2,4 +2,4 @@
 ## TOPIC: WEBSCRAPING
 ### LIBRAY: BEAUTIFUL SOUP
 
-let's talk bout WebScrapping, its the abliity of writting
+let's talk bout WebScrapping, its the abliity of extracting 
